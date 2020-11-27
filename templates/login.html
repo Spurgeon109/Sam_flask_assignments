@@ -1,0 +1,33 @@
+{% extends "default.html" %}
+{% block content %}
+  <div style="padding-left: 25%;padding-top: 50px;">
+  <div style="width:400px;height: 400px;background-color: rgb(228, 225, 220);">
+    <div style="padding: 20px;">
+      <form method="POST" action="/auth">
+        {{ form.Email.label(class="form-group") }}
+        {{ form.Email(class="form-control")}}<br>
+        {{ form.Password.label(class="form-group") }}
+        {{ form.Password(class="form-control")}}<br>
+        {{ form.SignIn(class="btn btn-primary") }}
+        <div style="display: flex;">
+          <p><a href="#">Forgot Password ?</a></p>
+          <p><a href="SignUp">Dont have an account SignUp</a></p>
+        </div>
+        
+        
+     </form>
+     {% with messages = get_flashed_messages() %}
+          {% if messages %}
+             {% for message in messages %}
+             <div style="padding-top: 20px; background-color: rgb(45, 59, 126);color: antiquewhite;">
+                  {{ message }}
+             </div>
+             {% endfor %}
+          {% endif %}
+     {% endwith %}
+    </div>
+    
+  </div>
+  </div>
+        
+{% endblock content %}
