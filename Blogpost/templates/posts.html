@@ -1,0 +1,25 @@
+{% extends "default.html" %}
+{% block content %}
+   <div style="padding-top: 20px; padding-left: 20px;">
+       <div style="width: 50%;">
+        <h2>Write your post</h2>
+        <form method="POST", action="/post-content">
+        <label for="Title" class="form-group">Title</label>
+        <input type="text" name="title" class = "form-control">
+        <label for="Post" class="form-group">Post</label>
+        <input style="height:150px;" role="textbox" type="text" name="Post" class="form-control" placeholder="Write your post here...">
+        <input type="submit" class="btn btn-primary">
+        </form>
+       </div>
+       {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <div style="padding-top: 20px; background-color: rgb(211, 65, 65);color: aliceblue;width: 15%;text-align: center;">
+                    {{ message }}
+               </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+   </div>
+
+{% endblock content %}
